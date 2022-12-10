@@ -6,8 +6,8 @@ using UnityEngine;
 public class MoveController : MonoBehaviour
 {
     private float horizontal;
-    private float jumpingPower = 16f;
-    private float speed = 8f;
+    [SerializeField, Range(1, 20)] private float jumpingPower = 16f;
+    [SerializeField, Range(1, 20)] private float speed = 8f;
     private bool isFacingRight;
 
     [SerializeField] private Rigidbody2D rb;
