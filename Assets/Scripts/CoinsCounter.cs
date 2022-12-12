@@ -1,26 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class CoinsCounter : MonoBehaviour
 {
-    public static CoinsCounter Instance;
-    public TextMeshProUGUI text;
-    int score;
+    public TextMeshProUGUI coinsDisplay;
+    private int count;
 
-    // Start is called before the first frame update
-    void Start()
+    public void AddCoinsCount(int numberOfCoins)
     {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-    }
-
-    public void UpdateCounter(int value)
-    {
-        score += value;
-        text.text = "X" + score.ToString();
+        numberOfCoins += numberOfCoins;
+        coinsDisplay.text = "Coins: " + count;
     }
 }
