@@ -6,10 +6,12 @@ using UnityEngine;
 public class MoveController : MonoBehaviour
 {
     private float horizontal;
-    private float jumpingPower = 16f;
-    private float speed = 8f;
     private bool isFacingRight;
 
+    
+    [SerializeField, Range(0,40)] private float jumpingPower = 16f;
+    [SerializeField, Range(0,20)] private float speed = 8f;
+    [SerializeField, Range(0,1)] private float fallingVelocity = 0.7f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -24,7 +26,7 @@ public class MoveController : MonoBehaviour
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f); // allows to jump higher when longer pushed
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * fallingVelocity); // allows to jump higher when longer pushed
         }
         Flip();
     }
