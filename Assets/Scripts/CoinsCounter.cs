@@ -8,7 +8,7 @@ public class CoinsCounter : MonoBehaviour
 
     public void AddCoinsCount(int numberOfCoins)
     {
-        numberOfCoins += numberOfCoins;
-        coinsDisplay.text = "Coins: " + count;
+        count += numberOfCoins;
+        coinsDisplay.text = "" + count;
     }
 }
