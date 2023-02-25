@@ -29,8 +29,8 @@ public class MoveController : MonoBehaviour
     [SerializeField] public LayerMask groundLayer;
     public GameObject characterHolder;
 
-    
 
+    
     void Update()
     {
         bool wasOnGround = onGround;
@@ -51,7 +51,9 @@ public class MoveController : MonoBehaviour
         {
             Flip();
         }
-        if (Mathf.Abs(rb.velocity.x) > maxSpeed) 
+        // usunac ifa i zrobic to w jednej linijce i cos tam
+
+        if (Mathf.Abs(rb.velocity.x) > maxSpeed)
         {
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
         }
