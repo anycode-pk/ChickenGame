@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class MoveController : MonoBehaviour
@@ -6,7 +5,7 @@ public class MoveController : MonoBehaviour
     [Header("Horizontal Movement")]
     public float moveSpeed = 10f;
     public Vector2 direction;
-    private bool isFacingRight = false;
+    private bool isFacingRight;
 
     [Header("Vertical Movement")]
     public float jumpSpeed = 10f;
@@ -22,25 +21,49 @@ public class MoveController : MonoBehaviour
     [Header("Collisions")] 
     public float groundLength = 0.6f;
     public Vector3 colliderOffset;
-    public bool onGround = false;
+    public bool onGround;
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] public LayerMask groundLayer;
-    public GameObject characterHolder;
 
+    private BoxCollider2D col;
 
-    
+    public bool isOnTransparentPlatform;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<BoxCollider2D>();
+    }
+
     void Update()
     {
-        bool wasOnGround = onGround;
-        onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
+        onGround = Physics2D.Raycast(transform.position + colliderOffset
+                          , Vector2.down, groundLength, groundLayer) || 
+                      Physics2D.Raycast(transform.position - colliderOffset
+                          , Vector2.down, groundLength, groundLayer);
 
         if(Input.GetButtonDown("Jump")){
             jumpTimer = Time.time + jumpDelay;
         }
-        
+
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        OneWayPlatformMovement();
+     }
+
+    private void OneWayPlatformMovement()
+    {
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            onGround = false;
+            Physics2D.IgnoreLayerCollision(9, 7, true);
+            //rb.AddForce(Vector2.down * 5f);
+        }
+        else
+        {
+            Physics2D.IgnoreLayerCollision(9, 7, false);
+        }
     }
 
     private void MoveCharacter(float horizontal)
@@ -90,7 +113,6 @@ public class MoveController : MonoBehaviour
             {
                 rb.drag = 0f;
             }
-            rb.gravityScale = 0;
         }
         else
         {
@@ -115,5 +137,17 @@ public class MoveController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
         Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("TransparentPlatform")) {
+            isOnTransparentPlatform = true;
+        }
+    }
+    
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("TransparentPlatform")) {
+            isOnTransparentPlatform = false;
+        }
     }
 }
