@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MoveController : MonoBehaviour
 {
@@ -27,7 +28,10 @@ public class MoveController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] public LayerMask groundLayer;
 
+
     private BoxCollider2D col;
+
+    public Animator animator;
 
     public bool isOnTransparentPlatform;
 
@@ -46,6 +50,10 @@ public class MoveController : MonoBehaviour
 
         if(Input.GetButtonDown("Jump")){
             jumpTimer = Time.time + jumpDelay;
+        }
+        if (!onGround)
+        {
+            animator.SetBool("IsJumping", true);
         }
 
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -85,10 +93,14 @@ public class MoveController : MonoBehaviour
     private void FixedUpdate()
     {
         MoveCharacter(direction.x);
-        if(jumpTimer > Time.time && (onGround))
+        animator.SetFloat("Speed",Mathf.Abs(rb.velocity.x));
+        
+        animator.SetBool("IsJumping", false);
+        if (jumpTimer > Time.time && (onGround))
         {
             Jump();
         }
+        
         ModifyPhysics(); // deletes effect of sliding on surface 
     }
 
@@ -98,6 +110,7 @@ public class MoveController : MonoBehaviour
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         jumpTimer = 0;
     }
+
 
     private void ModifyPhysics()
     {
