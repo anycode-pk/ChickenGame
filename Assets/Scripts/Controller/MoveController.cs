@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
+
+
 [System.Serializable]
 public class MoveController : MonoBehaviour
 {
@@ -36,12 +40,16 @@ public class MoveController : MonoBehaviour
 
     public Animator animator;
 
-    public bool isOnTransparentPlatform;
+    private BoxCollider2D col;
+    
+
+    public bool isOnPlatform;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -109,6 +117,7 @@ public class MoveController : MonoBehaviour
 
     private void Jump()
     {
+        animator.SetTrigger("Jump");
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         jumpTimer = 0;
@@ -156,14 +165,32 @@ public class MoveController : MonoBehaviour
     }
     
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("TransparentPlatform")) {
-            isOnTransparentPlatform = true;
+        if (collision.gameObject.CompareTag("Platform")) 
+        {
+            isOnPlatform = true;
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            ChickenDeath();
         }
     }
-    
+
+    private void ChickenDeath()
+    {
+        rb.bodyType = RigidbodyType2D.Static;
+        animator.SetTrigger("Death");
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("TransparentPlatform")) {
-            isOnTransparentPlatform = false;
+        if (collision.gameObject.CompareTag("Platform")) 
+        {
+            isOnPlatform = false;
         }
     }
 
