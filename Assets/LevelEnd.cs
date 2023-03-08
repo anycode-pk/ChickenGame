@@ -16,7 +16,7 @@ public class LevelEnd : MonoBehaviour
     [SerializeField] private Behavior behavior;
     [SerializeField] private string levelName;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Chicken"))
         {
