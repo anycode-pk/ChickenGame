@@ -40,8 +40,6 @@ public class MoveController : MonoBehaviour
 
     public Animator animator;
 
-    private BoxCollider2D col;
-    
 
     public bool isOnPlatform;
 
@@ -198,7 +196,7 @@ public class MoveController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            var coinCounter = GameObject.FindWithTag("CointCounter");
+            var coinCounter = GameObject.FindWithTag("CoinCounter");
             coinCounter.GetComponent<CoinCounter>().AddCoin();
             audioSource.PlayOneShot(coinSound);
             Destroy(other.gameObject);
