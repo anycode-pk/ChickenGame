@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Coins
-  - Platform
-  - TransparentPlatform
-  - Chicken
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -15,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Platform
-  - TransparentPlatform
-  - Chicken
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
