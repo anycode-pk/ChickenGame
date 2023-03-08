@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - TransparentPlatform
   - Chicken
+  - CointCounter
   layers:
   - Default
   - TransparentFX

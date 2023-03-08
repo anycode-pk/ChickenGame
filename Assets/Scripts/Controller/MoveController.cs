@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+[System.Serializable]
 public class MoveController : MonoBehaviour
 {
     [Header("Horizontal Movement")]
@@ -163,4 +163,5 @@ public class MoveController : MonoBehaviour
             isOnTransparentPlatform = false;
         }
     }
+    
 }

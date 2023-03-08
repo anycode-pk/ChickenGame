@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class Coins : MonoBehaviour
 {
-    public bool moving = false;
-    public float speed = 1.0f;
-    public float offset;
+    public bool moving = true;
+    public float speed = 3f;
+    public float offset = .2f;
     float startPositionY;
     TextMeshProUGUI text;
 
@@ -20,28 +19,13 @@ public class Coins : MonoBehaviour
         text = GetComponent<TextMeshProUGUI>();
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Chicken")
-        {
-            AddCoinsCount(1);
-            Destroy(this.gameObject);
-        }
-    }
 
     void Update()
     {
         if (moving)
         {
-            float y = Mathf.Lerp(startPositionY + offset, startPositionY - offset, Mathf.PingPong(Time.time / speed, 1));
+            float y = Mathf.Sin(Time.time * speed) * offset + startPositionY;  
             transform.position = new Vector2(transform.position.x, y);
         }
-    }
-    
-    public TextMeshProUGUI coinsDisplay;   
-    public void AddCoinsCount(int numberOfCoins)
-    {
-        Score.count += numberOfCoins;
-       // text.text = count.ToString();
     }
 }
