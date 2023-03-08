@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 [System.Serializable]
@@ -28,7 +29,9 @@ public class MoveController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] public LayerMask groundLayer;
 
-
+    [Header("Audio")] 
+    [SerializeField] private AudioClip coinSound;
+    [SerializeField] private AudioSource audioSource;
     private BoxCollider2D col;
 
     public Animator animator;
@@ -163,5 +166,15 @@ public class MoveController : MonoBehaviour
             isOnTransparentPlatform = false;
         }
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            var coinCounter = GameObject.FindWithTag("CointCounter");
+            coinCounter.GetComponent<CoinCounter>().AddCoin();
+            audioSource.PlayOneShot(coinSound);
+            Destroy(other.gameObject);
+        }
+    }
 }

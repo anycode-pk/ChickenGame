@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Coins
   - Platform
   - TransparentPlatform
   - Chicken
   - CointCounter
+  - Coin
   layers:
   - Default
   - TransparentFX
