@@ -191,9 +191,8 @@ public class MoveController : MonoBehaviour
             isOnPlatform = false;
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
+    
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Coin"))
         {
             var coinCounter = GameObject.FindWithTag("CoinCounter");
