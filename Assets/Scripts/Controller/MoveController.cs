@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 
@@ -28,20 +25,17 @@ public class MoveController : MonoBehaviour
     public float groundLength = 0.6f;
     public Vector3 colliderOffset;
     public bool onGround;
+    public bool isOnPlatform;
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] public LayerMask groundLayer;
-
+    private BoxCollider2D col;
+    public Animator animator;
+    
     [Header("Audio")] 
     [SerializeField] private AudioClip coinSound;
     [SerializeField] private AudioSource audioSource;
-    private BoxCollider2D col;
-
-    public Animator animator;
-
-
-    public bool isOnPlatform;
 
     private void Start()
     {
@@ -87,29 +81,24 @@ public class MoveController : MonoBehaviour
     {
         rb.AddForce(Vector2.right * (horizontal * moveSpeed));
         
-        if((horizontal > 0 && !isFacingRight) || (horizontal < 0 && isFacingRight))
-        {
-            Flip();
-        }
-        // usunac ifa i zrobic to w jednej linijce i cos tam
+        animator.SetBool("UserNotMovingChicken", horizontal == 0 ? true : false);
 
-        if (Mathf.Abs(rb.velocity.x) > maxSpeed)
-        {
+        if((horizontal > 0 && !isFacingRight) || (horizontal < 0 && isFacingRight))
+            Flip();
+        
+        if (Mathf.Abs(rb.velocity.x) > maxSpeed) 
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
-        }
     }
 
     private void FixedUpdate()
     {
         MoveCharacter(direction.x);
         animator.SetFloat("Speed",Mathf.Abs(rb.velocity.x));
-        
         animator.SetBool("IsJumping", false);
-        if (jumpTimer > Time.time && (onGround))
-        {
-            Jump();
-        }
         
+        if (jumpTimer > Time.time && (onGround))
+            Jump();
+
         ModifyPhysics(); // deletes effect of sliding on surface 
     }
 
