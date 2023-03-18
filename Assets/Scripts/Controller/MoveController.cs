@@ -36,7 +36,6 @@ public class MoveController : MonoBehaviour
     [SerializeField] public LayerMask groundLayer;
     private BoxCollider2D col;
     public Animator animator;
-    private CinemachineVirtualCamera vc;
 
     [Header("Audio")] 
     [SerializeField] private AudioClip coinSound;
@@ -47,7 +46,6 @@ public class MoveController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
-        vc = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
     }
 
     void Update()
@@ -172,8 +170,9 @@ public class MoveController : MonoBehaviour
     private void ChickenDeath()
     {
         //rb.bodyType = RigidbodyType2D.Static;
+        CinemachineVirtualCamera vCam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
         rb.transform.position += Vector3.up * 1.7f;
-        vc.Follow = null;
+        vCam.Follow = null;
         col.enabled = false;
         animator.SetTrigger("Death");
     }
