@@ -9,6 +9,9 @@ TagManager:
   - Chicken
   - Coin
   - CoinCounter
+  - CointCounter
+  - PauseMenu
+  - LifeCounter
   layers:
   - Default
   - TransparentFX

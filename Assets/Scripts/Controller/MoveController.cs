@@ -36,6 +36,7 @@ public class MoveController : MonoBehaviour
     [SerializeField] public LayerMask groundLayer;
     private BoxCollider2D col;
     public Animator animator;
+    public Health health;
 
     [Header("Audio")] 
     [SerializeField] private AudioClip coinSound;
@@ -46,6 +47,7 @@ public class MoveController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
     }
 
     void Update()
@@ -163,7 +165,8 @@ public class MoveController : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            ChickenDeath();
+            health.TakeDamage(2);
+            ChickenDeath();         
         }
     }
 
