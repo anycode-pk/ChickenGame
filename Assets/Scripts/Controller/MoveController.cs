@@ -196,9 +196,13 @@ public class MoveController : MonoBehaviour
         if (other.gameObject.CompareTag("Coin"))
         {
             var coinCounter = GameObject.FindWithTag("CoinCounter");
-            coinCounter.GetComponent<CoinCounter>().AddCoin();
             audioSource.PlayOneShot(coinSound);
             Destroy(other.gameObject);
+            if (coinCounter == null)
+            {
+                return;
+            }
+            coinCounter.GetComponent<CoinCounter>().AddCoin();
         }
     }
 }
