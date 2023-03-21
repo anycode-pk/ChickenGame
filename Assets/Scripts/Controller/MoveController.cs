@@ -165,7 +165,7 @@ public class MoveController : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            health.TakeDamage(2);
+            health.TakeDamage(3);
             ChickenDeath();         
         }
     }

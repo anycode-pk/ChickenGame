@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     private int maxHealth=3, currentHealth;
-    public Image[] lives; 
+    public Image[] lives;
+    public GameObject resume;
     PauseMenu pauseMenu;
     void Start()
     {
         currentHealth = maxHealth;
         pauseMenu= GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
+        TakeDamage(1);
     }
     
     // Update is called once per frame
@@ -23,15 +25,31 @@ public class Health : MonoBehaviour
             currentHealth--;
             lives[currentHealth].enabled = false;
         }
-       //SubtractHeart(currentHealth);
+       //push from source
         if (currentHealth <= 0) 
-        {
-            //Debug.Log("xd");
-            pauseMenu.PauseGame();           
+        {           
+            pauseMenu.PauseGame();  
+            resume.SetActive(false);
         }
     }
-    //private void SubtractHeart(int live) 
-    //{
-    //    lives[live].enabled = false;//gameObject.SetActive(false);
-    //}
+
+    private void AddHeart(int amount) 
+    {
+        for (int i = 1; i <= amount; i++)
+        {
+            if (currentHealth <= 3)
+            {
+                lives[currentHealth].enabled = true;
+                currentHealth++;
+            }
+        }          
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            AddHeart(1);
+        }
+    }
 }
