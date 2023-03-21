@@ -7,62 +7,72 @@ using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
-public class MoveController : MonoBehaviour
+public class MoveController
 {
     [Header("Horizontal Movement")]
-    public float moveSpeed = 10f;
+    [SerializeField] private float moveSpeed = 10f;
     public Vector2 direction;
     private bool isFacingRight;
 
     [Header("Vertical Movement")]
-    public float jumpSpeed = 10f;
-    public float jumpDelay = 0.25f;
+    [SerializeField] private float jumpSpeed = 10f;
+    [SerializeField] private float jumpDelay = 0.25f;
     private float jumpTimer;
     
     [Header("Physics")]
-    [SerializeField] public float maxSpeed = 7f;
-    [SerializeField] public float linearDrag = 4f;
-    [SerializeField] public float gravity = 1f;
-    [SerializeField] public float fallMultiplier = 5f;
+    [SerializeField] private float maxSpeed = 7f;
+    [SerializeField] private float linearDrag = 4f;
+    [SerializeField] private float gravity = 1f;
+    [SerializeField] private float fallMultiplier = 5f;
 
     [Header("Collisions")] 
-    public float groundLength = 0.6f;
-    public Vector3 colliderOffset;
+    [SerializeField] private float groundLength = 0.6f;
+    [SerializeField] private Vector3 colliderOffset;
     public bool onGround;
     public bool isOnPlatform;
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] public LayerMask groundLayer;
-    private BoxCollider2D col;
-    public Animator animator;
-    public Health health;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private BoxCollider2D col;
+    [SerializeField] private Animator animator;
+    [SerializeField] public Health health;
+    [SerializeField] public Transform transform;
 
     [Header("Audio")] 
     [SerializeField] private AudioClip coinSound;
     [SerializeField] private AudioSource audioSource;
+    
+    [Header("StringToHash")] 
+    private static readonly int UserNotMovingChicken = Animator.StringToHash("UserNotMovingChicken");
+    private static readonly int IsJumping = Animator.StringToHash("IsJumping");
+    private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int Jump1 = Animator.StringToHash("Jump");
+    private static readonly int Death = Animator.StringToHash("Death");
 
-    private void Start()
+    public void InitComponents(Rigidbody2D rb, BoxCollider2D col, Animator animator, Health health, Transform transform)
     {
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
-        animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
+        this.rb = rb;
+        this.col = col;
+        this.animator = animator;
+        this.health = health;
+        this.transform = transform;
     }
-
-    void Update()
+    
+    public void Update()
     {
-        onGround = Physics2D.Raycast(transform.position + colliderOffset
-                          , Vector2.down, groundLength, groundLayer) || 
-                      Physics2D.Raycast(transform.position - colliderOffset
-                          , Vector2.down, groundLength, groundLayer);
+        var position = transform.position;
+        onGround = Physics2D.Raycast(position + colliderOffset
+                       , Vector2.down, groundLength, groundLayer) || 
+                   Physics2D.Raycast(position - colliderOffset
+                       , Vector2.down, groundLength, groundLayer);
 
         if(Input.GetButtonDown("Jump")){
             jumpTimer = Time.time + jumpDelay;
         }
         if (!onGround)
         {
-            animator.SetBool("IsJumping", true);
+            animator.SetBool(IsJumping, true);
         }
 
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -87,7 +97,7 @@ public class MoveController : MonoBehaviour
     {
         rb.AddForce(Vector2.right * (horizontal * moveSpeed));
         
-        animator.SetBool("UserNotMovingChicken", horizontal == 0 ? true : false);
+        animator.SetBool(UserNotMovingChicken, horizontal == 0 ? true : false);
 
         if((horizontal > 0 && !isFacingRight) || (horizontal < 0 && isFacingRight))
             Flip();
@@ -96,11 +106,11 @@ public class MoveController : MonoBehaviour
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         MoveCharacter(direction.x);
-        animator.SetFloat("Speed",Mathf.Abs(rb.velocity.x));
-        animator.SetBool("IsJumping", false);
+        animator.SetFloat(Speed,Mathf.Abs(rb.velocity.x));
+        animator.SetBool(IsJumping, false);
         
         if (jumpTimer > Time.time && (onGround))
             Jump();
@@ -110,7 +120,7 @@ public class MoveController : MonoBehaviour
 
     private void Jump()
     {
-        animator.SetTrigger("Jump");
+        animator.SetTrigger(Jump1);
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         jumpTimer = 0;
@@ -119,7 +129,8 @@ public class MoveController : MonoBehaviour
 
     private void ModifyPhysics()
     {
-        bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
+        var xVelocity = rb.velocity.x;
+        bool changingDirections = (direction.x > 0 && xVelocity < 0) || (direction.x < 0 && xVelocity > 0);
 
         if (onGround)
         {
@@ -151,13 +162,30 @@ public class MoveController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, isFacingRight ? 0 : 180, 0);
     }
     
-    private void OnDrawGizmos() {
+    public void DrawDebugFeet() {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
-        Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
+        var position = transform.position;
+        Gizmos.DrawLine(position + colliderOffset, position + colliderOffset + Vector3.down * groundLength);
+        Gizmos.DrawLine(position - colliderOffset, position - colliderOffset + Vector3.down * groundLength);
     }
     
-    private void OnCollisionEnter2D(Collision2D collision) {
+
+    private void Die()
+    {
+        //rb.bodyType = RigidbodyType2D.Static;
+        CinemachineVirtualCamera vCam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+        rb.transform.position += Vector3.up * 1.7f;
+        vCam.Follow = null;
+        col.enabled = false;
+        animator.SetTrigger(Death);
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ColCheckEnter(Collision2D collision) {
         if (collision.gameObject.CompareTag("Platform")) 
         {
             isOnPlatform = true;
@@ -169,30 +197,14 @@ public class MoveController : MonoBehaviour
             ChickenDeath();         
         }
     }
-
-    private void ChickenDeath()
-    {
-        //rb.bodyType = RigidbodyType2D.Static;
-        CinemachineVirtualCamera vCam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
-        rb.transform.position += Vector3.up * 1.7f;
-        vCam.Follow = null;
-        col.enabled = false;
-        animator.SetTrigger("Death");
-    }
-
-    private void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    private void OnCollisionExit2D(Collision2D collision) {
+    public void ColCheckExit(Collision2D collision) {
         if (collision.gameObject.CompareTag("Platform")) 
         {
             isOnPlatform = false;
         }
     }
     
-    private void OnTriggerEnter2D(Collider2D other) {
+    public GameObject PickUpCoin(Collider2D other) {
         if (other.gameObject.CompareTag("Coin"))
         {
             var coinCounter = GameObject.FindWithTag("CoinCounter");
@@ -204,5 +216,6 @@ public class MoveController : MonoBehaviour
             }
             coinCounter.GetComponent<CoinCounter>().AddCoin();
         }
+        return null;
     }
 }
