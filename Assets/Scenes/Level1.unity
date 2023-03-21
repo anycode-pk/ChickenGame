@@ -27752,11 +27752,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6936057110346679941, guid: 8f16b07de8aa46940a2a0afeeb7ca55e, type: 3}
   m_PrefabInstance: {fileID: 893425558}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &895962685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5345647386415084922, guid: 9c17e216c5b455f49942562c22c55fdb, type: 3}
-  m_PrefabInstance: {fileID: 1128414310}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &914573497
 GameObject:
   m_ObjectHideFlags: 0
@@ -30455,7 +30450,17 @@ MonoBehaviour:
   - {fileID: 1665964999}
   - {fileID: 1336537939}
   - {fileID: 283974883}
-  resume: {fileID: 895962685}
+  resume: {fileID: 0}
+--- !u!82 &1185403774 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 226586608, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+  m_PrefabInstance: {fileID: 1339784853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1185403775 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5613331421685692341, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+  m_PrefabInstance: {fileID: 1339784853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1198333970
 GameObject:
   m_ObjectHideFlags: 0
@@ -31109,6 +31114,42 @@ PrefabInstance:
     - target: {fileID: 107368712571072568, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.col
+      value: 
+      objectReference: {fileID: 1185403775}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.health
+      value: 
+      objectReference: {fileID: 1185403773}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.gravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.maxSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.linearDrag
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.audioSource
+      value: 
+      objectReference: {fileID: 1185403774}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.groundLength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.fallMultiplier
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.colliderOffset.x
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4464564458464950103, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35946,7 +35987,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5535042604819904789, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: orthographic size
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819904790, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_Name
