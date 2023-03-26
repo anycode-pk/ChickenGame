@@ -1,6 +1,5 @@
 using Cinemachine;
 using UnityEditor;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -41,7 +40,10 @@ public class MoveController
 
     [Header("Audio")] 
     [SerializeField] private AudioClip coinSound;
+    [SerializeField] private AudioClip heartSound;
+    [SerializeField] private AudioClip diamondSound;
     [SerializeField] private AudioSource audioSource;
+    
 
     [Header("StringToHash")] 
     private static readonly int UserNotMovingChicken = Animator.StringToHash("UserNotMovingChicken");
@@ -192,7 +194,7 @@ public class MoveController
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            health.TakeDamage(2);
+            //health.TakeDamage(3);
             Die();
         }
     }
@@ -213,5 +215,28 @@ public class MoveController
             return other.gameObject;
         } 
     return null;
+    }
+
+    public GameObject PickUpHeart(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Heart"))
+        {
+            health.AddHeart(1);
+            audioSource.PlayOneShot(heartSound);
+            return other.gameObject;
+        }
+        return null;
+    }
+
+    public GameObject PickUpDiamond(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Diamond"))
+        {
+            var diamondCounter = GameObject.FindWithTag("DiamondCounter");
+            diamondCounter.GetComponent<DiamondCounter>().AddDiamond();
+            audioSource.PlayOneShot(diamondSound);
+            return other.gameObject;
+        }
+        return null;
     }
 } 

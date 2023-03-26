@@ -48,6 +48,11 @@ using UnityEngine;
         private void OnTriggerEnter2D(Collider2D col)
         {
             GameObject coin = moveController.PickUpCoin(col);
+            GameObject heart = moveController.PickUpHeart(col);
+            GameObject diamond = moveController.PickUpDiamond(col);
             Destroy(coin);
+            Destroy(heart);
+            Destroy(diamond);
         }
+
     }

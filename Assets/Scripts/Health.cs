@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void AddHeart(int amount) 
+    public void AddHeart(int amount) 
     {
         for (int i = 1; i <= amount; i++)
         {
@@ -43,13 +43,5 @@ public class Health : MonoBehaviour
                 currentHealth++;
             }
         }          
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            AddHeart(1);
-        }
     }
 }

@@ -12,6 +12,9 @@ TagManager:
   - CointCounter
   - PauseMenu
   - LifeCounter
+  - Heart
+  - DiamondCounter
+  - Diamond
   layers:
   - Default
   - TransparentFX
