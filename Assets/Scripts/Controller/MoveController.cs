@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class MoveController
 {
+    public HealthController healthController = new HealthController();
+
     [Header("Horizontal Movement")]
     [SerializeField] private float moveSpeed = 10f;
     public Vector2 direction;
@@ -35,7 +37,6 @@ public class MoveController
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private BoxCollider2D col;
     [SerializeField] private Animator animator;
-    [SerializeField] public Health health;
     [SerializeField] public Transform transform;
 
     [Header("Audio")] 
@@ -52,12 +53,11 @@ public class MoveController
     private static readonly int Jump1 = Animator.StringToHash("Jump");
     private static readonly int Death = Animator.StringToHash("Death");
 
-    public void InitComponents(Rigidbody2D rb, BoxCollider2D col, Animator animator, Health health, Transform transform)
+    public void InitComponents(Rigidbody2D rb, BoxCollider2D col, Animator animator, Transform transform)
     {
         this.rb = rb;
         this.col = col;
         this.animator = animator;
-        this.health = health;
         this.transform = transform;
     }
 
@@ -194,8 +194,8 @@ public class MoveController
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            //health.TakeDamage(3);
-            Die();
+            healthController.TakeDamage(1,collision.transform);
+            //Die();
         }
     }
     public void ColCheckExit(Collision2D collision) {
@@ -217,16 +217,7 @@ public class MoveController
     return null;
     }
 
-    public GameObject PickUpHeart(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Heart"))
-        {
-            health.AddHeart(1);
-            audioSource.PlayOneShot(heartSound);
-            return other.gameObject;
-        }
-        return null;
-    }
+    
 
     public GameObject PickUpDiamond(Collider2D other)
     {
