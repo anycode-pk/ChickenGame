@@ -84,23 +84,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveController:
+    healthController:
+      lives: []
+      resume: {fileID: 0}
+      takeable: 0
+      knockBackForce: 5
+      rb: {fileID: 0}
+      transform: {fileID: 0}
+      heartSound: {fileID: 0}
+      audioSource: {fileID: 0}
+    moveSpeed: 10
     direction: {x: 0, y: 0}
-    maxSpeed: 0
-    linearDrag: 0
-    gravity: 0
-    fallMultiplier: 0
-    colliderOffset: {x: 0, y: 0, z: 0}
+    jumpSpeed: 10
+    jumpDelay: 0.25
+    maxSpeed: 7
+    linearDrag: 4
+    gravity: 1
+    fallMultiplier: 5
+    groundLength: 1
+    colliderOffset: {x: 0.3, y: 0, z: 0}
     onGround: 0
-    isOnPlatform: 0
+    goingThroughPlatform: 0
     rb: {fileID: 4897335342498597701}
     groundLayer:
       serializedVersion: 2
       m_Bits: 192
+    col: {fileID: 5613331421685692341}
     animator: {fileID: 226586603}
-    health: {fileID: 0}
     transform: {fileID: 4464564458464950103}
     coinSound: {fileID: 8300000, guid: 857a132823a65b4448068ed17ee9565a, type: 3}
-    audioSource: {fileID: 0}
+    heartSound: {fileID: 8300000, guid: 59f583d4ac4859641b4f3be1ca0a3be0, type: 3}
+    diamondSound: {fileID: 8300000, guid: 037544c9c5b9d19488921c8714e6ed26, type: 3}
+    audioSource: {fileID: 226586608}
+  healthController:
+    lives: []
+    resume: {fileID: 0}
+    takeable: 0
+    knockBackForce: 5
+    rb: {fileID: 0}
+    transform: {fileID: 0}
+    heartSound: {fileID: 8300000, guid: 59f583d4ac4859641b4f3be1ca0a3be0, type: 3}
+    audioSource: {fileID: 226586608}
 --- !u!82 &226586608
 AudioSource:
   m_ObjectHideFlags: 0

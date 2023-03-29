@@ -39,6 +39,11 @@ public class PlayerController : MonoBehaviour
     {
         moveController.ColCheckEnter(other);
     }
+    
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        moveController.ColStayBehaviour(other);
+    }
 
     private void OnCollisionExit2D(Collision2D other)
     {

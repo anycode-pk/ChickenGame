@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 
 [System.Serializable]
@@ -26,11 +27,11 @@ public class MoveController
     [SerializeField] private float gravity = 1f;
     [SerializeField] private float fallMultiplier = 5f;
 
-    [Header("Collisions")] 
+    [Header("Collisions")]
     [SerializeField] private float groundLength = 0.6f;
     [SerializeField] private Vector3 colliderOffset;
     public bool onGround;
-    public bool isOnPlatform;
+    [FormerlySerializedAs("isOnPlatform")] public bool goingThroughPlatform;
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
@@ -39,14 +40,14 @@ public class MoveController
     [SerializeField] private Animator animator;
     [SerializeField] public Transform transform;
 
-    [Header("Audio")] 
+    [Header("Audio")]
     [SerializeField] private AudioClip coinSound;
     [SerializeField] private AudioClip heartSound;
     [SerializeField] private AudioClip diamondSound;
     [SerializeField] private AudioSource audioSource;
     
 
-    [Header("StringToHash")] 
+    [Header("StringToHash")]
     private static readonly int UserNotMovingChicken = Animator.StringToHash("UserNotMovingChicken");
     private static readonly int IsJumping = Animator.StringToHash("IsJumping");
     private static readonly int Speed = Animator.StringToHash("Speed");
@@ -63,11 +64,7 @@ public class MoveController
 
     public void Update()
     {
-        var position = transform.position;
-        onGround = Physics2D.Raycast(position + colliderOffset
-                    , Vector2.down, groundLength, groundLayer) || 
-                    Physics2D.Raycast(position - colliderOffset
-                    , Vector2.down, groundLength, groundLayer);
+        CheckGround();
 
         if(Input.GetButtonDown("Jump"))
             jumpTimer = Time.time + jumpDelay;
@@ -79,9 +76,21 @@ public class MoveController
         OneWayPlatformMovement();
     }
 
+    private void CheckGround()
+    {
+        var position = transform.position;
+        if (Input.GetAxisRaw("Vertical") == 0)
+        {
+            onGround = Physics2D.Raycast(position + colliderOffset
+                           , Vector2.down, groundLength, groundLayer) ||
+                       Physics2D.Raycast(position - colliderOffset
+                           , Vector2.down, groundLength, groundLayer);
+        }
+    }
+
     private void OneWayPlatformMovement()
     {
-        if (Input.GetAxis("Vertical") < 0)
+        if (Input.GetAxis("Vertical") < 0 )
         {
             onGround = false;
             Physics2D.IgnoreLayerCollision(9, 7, true);
@@ -102,8 +111,8 @@ public class MoveController
         if((horizontal > 0 && !isFacingRight) || (horizontal < 0 && isFacingRight))
             Flip();
 
-        if (Mathf.Abs(rb.velocity.x) > maxSpeed) 
-        rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
+        if (Mathf.Abs(rb.velocity.x) > maxSpeed)
+            rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
     }
 
     public void FixedUpdate()
@@ -115,7 +124,7 @@ public class MoveController
         if (jumpTimer > Time.time && (onGround))
             Jump();
 
-        ModifyPhysics(); // deletes effect of sliding on surface 
+        ModifyPhysics(); // deletes effect of sliding on surface
     }
 
     private void Jump()
@@ -136,7 +145,7 @@ public class MoveController
     {
         if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
         {
-        rb.drag = linearDrag;
+            rb.drag = linearDrag;
         }
         else
         {
@@ -145,8 +154,8 @@ public class MoveController
     }
         else
         {
-        rb.gravityScale = gravity;
-        rb.drag = linearDrag * 0.15f;
+            rb.gravityScale = gravity;
+            rb.drag = linearDrag * 0.15f;
             if (rb.velocity.y < 0)
             {
                 rb.gravityScale = gravity * fallMultiplier;
@@ -189,7 +198,8 @@ public class MoveController
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            isOnPlatform = true;
+            collision.collider.enabled = false;
+            goingThroughPlatform = true;
         }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
@@ -198,10 +208,20 @@ public class MoveController
             //Die();
         }
     }
+    
+    public void ColStayBehaviour(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            other.collider.enabled = false;
+            goingThroughPlatform = true;
+        }
+    }
     public void ColCheckExit(Collision2D collision) {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            isOnPlatform = false;
+            collision.collider.enabled = true;
+            goingThroughPlatform = false;
         }
     }
 
@@ -209,12 +229,12 @@ public class MoveController
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-                var coinCounter = GameObject.FindWithTag("CoinCounter");
-                coinCounter.GetComponent<CoinCounter>().AddCoin();
-                audioSource.PlayOneShot(coinSound);
+            var coinCounter = GameObject.FindWithTag("CoinCounter");
+            coinCounter.GetComponent<CoinCounter>().AddCoin();
+            audioSource.PlayOneShot(coinSound);
             return other.gameObject;
         } 
-    return null;
+        return null;
     }
 
     
