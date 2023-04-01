@@ -30923,21 +30923,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4464564458464950103, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
   m_PrefabInstance: {fileID: 1339784853}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1185403774 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 226586608, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-  m_PrefabInstance: {fileID: 1339784853}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1185403775 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 5613331421685692341, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-  m_PrefabInstance: {fileID: 1339784853}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1185403777 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 4897335342498597701, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-  m_PrefabInstance: {fileID: 1339784853}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1198333970
 GameObject:
   m_ObjectHideFlags: 0
@@ -31674,20 +31659,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.col
-      value: 
-      objectReference: {fileID: 1185403775}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: healthController.rb
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: moveController.health
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.gravity
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: healthController.health
@@ -31697,62 +31670,6 @@ PrefabInstance:
       propertyPath: healthController.resume
       value: 
       objectReference: {fileID: 1775354792}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.maxSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: healthController.takeable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.heartSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 59f583d4ac4859641b4f3be1ca0a3be0, type: 3}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.linearDrag
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: healthController.transform
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.audioSource
-      value: 
-      objectReference: {fileID: 1185403774}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: healthController.heartSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 59f583d4ac4859641b4f3be1ca0a3be0, type: 3}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.diamondSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 037544c9c5b9d19488921c8714e6ed26, type: 3}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.groundLength
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: healthController.audioSource
-      value: 
-      objectReference: {fileID: 1185403774}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.fallMultiplier
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.colliderOffset.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: healthController.lives.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.healthController.rb
-      value: 
-      objectReference: {fileID: 1185403777}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: healthController.lives.Array.data[0]
       value: 
@@ -31765,10 +31682,6 @@ PrefabInstance:
       propertyPath: healthController.lives.Array.data[2]
       value: 
       objectReference: {fileID: 1665964999}
-    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
-      propertyPath: moveController.healthController.transform
-      value: 
-      objectReference: {fileID: 1185403765}
     - target: {fileID: 4464564458464950103, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.03
@@ -32121,6 +32034,107 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.000763, y: 21.346252}
   m_EdgeRadius: 0
+--- !u!1 &1471128682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4464564458464950104, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+  m_PrefabInstance: {fileID: 1339784853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1471128687
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471128682}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 38d2846616d0ca640950f5ae27ed2d70, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.747
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1504474468
 PrefabInstance:
   m_ObjectHideFlags: 0

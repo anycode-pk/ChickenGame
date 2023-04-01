@@ -89,8 +89,8 @@ MonoBehaviour:
       resume: {fileID: 0}
       takeable: 0
       knockBackForce: 5
-      rb: {fileID: 0}
-      transform: {fileID: 0}
+      rb: {fileID: 4897335342498597701}
+      transform: {fileID: 4464564458464950103}
       heartSound: {fileID: 0}
       audioSource: {fileID: 0}
     moveSpeed: 10
@@ -101,7 +101,7 @@ MonoBehaviour:
     linearDrag: 4
     gravity: 1
     fallMultiplier: 5
-    groundLength: 1
+    groundLength: 1.05
     colliderOffset: {x: 0.3, y: 0, z: 0}
     onGround: 0
     goingThroughPlatform: 0
@@ -115,9 +115,14 @@ MonoBehaviour:
     coinSound: {fileID: 8300000, guid: 857a132823a65b4448068ed17ee9565a, type: 3}
     heartSound: {fileID: 8300000, guid: 59f583d4ac4859641b4f3be1ca0a3be0, type: 3}
     diamondSound: {fileID: 8300000, guid: 037544c9c5b9d19488921c8714e6ed26, type: 3}
+    jumpSound: {fileID: 8300000, guid: e241d73e8785e0546bcab6f6980d5daa, type: 3}
+    deathSound: {fileID: 8300000, guid: aea9cd2c491b12d499528f9e95b96de0, type: 3}
     audioSource: {fileID: 226586608}
   healthController:
-    lives: []
+    lives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     resume: {fileID: 0}
     takeable: 0
     knockBackForce: 5

@@ -46,6 +46,8 @@ public class MoveController
     [SerializeField] private AudioClip coinSound;
     [SerializeField] private AudioClip heartSound;
     [SerializeField] private AudioClip diamondSound;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioSource audioSource;
     
 
@@ -141,6 +143,7 @@ public class MoveController
 
     private void Jump()
     {
+        audioSource.PlayOneShot(jumpSound);
         animator.SetTrigger(Jump1);
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
@@ -193,7 +196,8 @@ public class MoveController
     }
     private void Die()
      {
-         //rb.bodyType = RigidbodyType2D.Static;
+        //rb.bodyType = RigidbodyType2D.Static;
+         audioSource.PlayOneShot(deathSound);
          CinemachineVirtualCamera vCam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
          rb.transform.position += Vector3.up * 1.7f;
          vCam.Follow = null;
