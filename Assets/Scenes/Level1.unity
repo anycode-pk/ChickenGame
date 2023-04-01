@@ -30933,6 +30933,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 5613331421685692341, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
   m_PrefabInstance: {fileID: 1339784853}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1185403777 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4897335342498597701, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+  m_PrefabInstance: {fileID: 1339784853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1198333970
 GameObject:
   m_ObjectHideFlags: 0
@@ -30946,7 +30951,7 @@ GameObject:
   - component: {fileID: 1198333972}
   m_Layer: 7
   m_Name: Platform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31673,6 +31678,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1185403775}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.rb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: moveController.health
       value: 
       objectReference: {fileID: 0}
@@ -31705,6 +31714,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.transform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: moveController.audioSource
       value: 
       objectReference: {fileID: 1185403774}
@@ -31718,7 +31731,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 037544c9c5b9d19488921c8714e6ed26, type: 3}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: moveController.groundLength
-      value: 1
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: healthController.audioSource
@@ -31737,6 +31750,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.healthController.rb
+      value: 
+      objectReference: {fileID: 1185403777}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: healthController.lives.Array.data[0]
       value: 
       objectReference: {fileID: 283974883}
@@ -31748,9 +31765,17 @@ PrefabInstance:
       propertyPath: healthController.lives.Array.data[2]
       value: 
       objectReference: {fileID: 1665964999}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.healthController.transform
+      value: 
+      objectReference: {fileID: 1185403765}
     - target: {fileID: 4464564458464950103, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2
+      value: -1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464564458464950103, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
@@ -36597,11 +36622,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2
+      value: -1.03
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.66
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36769,11 +36794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2
+      value: -1.03
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.66
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.z

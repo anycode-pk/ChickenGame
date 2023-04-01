@@ -1,4 +1,5 @@
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -32,7 +33,8 @@ public class MoveController
     [SerializeField] private Vector3 colliderOffset;
     public bool onGround;
     [FormerlySerializedAs("isOnPlatform")] public bool goingThroughPlatform;
-
+    private float waitTime = 0.5f;
+    
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
@@ -65,7 +67,8 @@ public class MoveController
     public void Update()
     {
         CheckGround();
-
+        
+        
         if(Input.GetButtonDown("Jump"))
             jumpTimer = Time.time + jumpDelay;
         
@@ -73,8 +76,9 @@ public class MoveController
             animator.SetBool(IsJumping, true);
 
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        OneWayPlatformMovement();
     }
+
+    
 
     private void CheckGround()
     {
@@ -90,11 +94,18 @@ public class MoveController
 
     private void OneWayPlatformMovement()
     {
-        if (Input.GetAxis("Vertical") < 0 )
+        if (Input.GetKey(KeyCode.S))
         {
-            onGround = false;
-            Physics2D.IgnoreLayerCollision(9, 7, true);
-            //rb.AddForce(Vector2.down * 5f);
+            if (waitTime <= 0)
+            {
+                Physics2D.IgnoreLayerCollision(9, 7, true);
+                rb.AddForce(Vector2.down * 5f);
+                waitTime = 0.5f;
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
+            }
         }
         else
         {
@@ -124,7 +135,8 @@ public class MoveController
         if (jumpTimer > Time.time && (onGround))
             Jump();
 
-        ModifyPhysics(); // deletes effect of sliding on surface
+        ModifyPhysics();
+        OneWayPlatformMovement();
     }
 
     private void Jump()
@@ -194,18 +206,18 @@ public class MoveController
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
 
-    public void ColCheckEnter(Collision2D collision) 
+    public void ColCheckEnter(Collision2D other)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (other.gameObject.CompareTag("Platform"))
         {
-            collision.collider.enabled = false;
+            Physics2D.IgnoreCollision(other.collider, col, true);
             goingThroughPlatform = true;
         }
-
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
+        
+        if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            healthController.TakeDamage(1,collision.transform);
-            //Die();
+            healthController.TakeDamage(1,other.transform);
+            Die();
         }
     }
     
@@ -213,14 +225,15 @@ public class MoveController
     {
         if (other.gameObject.CompareTag("Platform"))
         {
-            other.collider.enabled = false;
+            Physics2D.IgnoreCollision(other.collider, col, true);
             goingThroughPlatform = true;
         }
     }
-    public void ColCheckExit(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Platform"))
+    public void ColCheckExit(Collision2D other) 
+    {
+        if (other.gameObject.CompareTag("Platform"))
         {
-            collision.collider.enabled = true;
+            Physics2D.IgnoreCollision(other.collider, col, false);
             goingThroughPlatform = false;
         }
     }
