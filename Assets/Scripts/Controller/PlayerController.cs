@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D other)
     {
         moveController.ColCheckExit(other);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D col)

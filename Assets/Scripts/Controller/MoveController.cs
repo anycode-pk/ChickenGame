@@ -32,9 +32,8 @@ public class MoveController
     [SerializeField] private float groundLength = 0.6f;
     [SerializeField] private Vector3 colliderOffset;
     public bool onGround;
-    [FormerlySerializedAs("isOnPlatform")] public bool goingThroughPlatform;
     private float waitTime = 0.5f;
-    
+
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
@@ -69,8 +68,7 @@ public class MoveController
     public void Update()
     {
         CheckGround();
-        
-        
+
         if(Input.GetButtonDown("Jump"))
             jumpTimer = Time.time + jumpDelay;
         
@@ -212,10 +210,9 @@ public class MoveController
 
     public void ColCheckEnter(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform"))
+        if (other.gameObject.CompareTag("Platform")) 
         {
             Physics2D.IgnoreCollision(other.collider, col, true);
-            goingThroughPlatform = true;
         }
         
         if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
@@ -230,7 +227,6 @@ public class MoveController
         if (other.gameObject.CompareTag("Platform"))
         {
             Physics2D.IgnoreCollision(other.collider, col, true);
-            goingThroughPlatform = true;
         }
     }
     public void ColCheckExit(Collision2D other) 
@@ -238,7 +234,6 @@ public class MoveController
         if (other.gameObject.CompareTag("Platform"))
         {
             Physics2D.IgnoreCollision(other.collider, col, false);
-            goingThroughPlatform = false;
         }
     }
 

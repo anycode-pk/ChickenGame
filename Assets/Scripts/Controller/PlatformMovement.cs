@@ -20,9 +20,9 @@ public class PlatformMovement : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.transform.position.y > transform.position.y && col.gameObject.CompareTag("Chicken"))
+        if(col.gameObject.CompareTag("Chicken"))
         {
-            col.transform.SetParent(transform);
+            col.gameObject.transform.SetParent(gameObject.transform);
         }
     }
 
@@ -30,7 +30,7 @@ public class PlatformMovement : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Chicken"))
         {
-            col.collider.transform.SetParent(null);
+            col.gameObject.transform.parent = null;
         }
     }
 }
