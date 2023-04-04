@@ -64,21 +64,35 @@ public class MoveController
         this.animator = animator;
         this.transform = transform;
     }
+    
+    public void FixedUpdate()
+    {
+        MoveCharacter(direction.x);
+        ModifyPhysics();
+        OneWayPlatformMovement();
+    }
 
     public void Update()
     {
+        MovingLogic();
+    }
+
+    private void MovingLogic()
+    {
         CheckGround();
-
-        if(Input.GetButtonDown("Jump"))
-            jumpTimer = Time.time + jumpDelay;
-        
-        if (!onGround)
-            animator.SetBool(IsJumping, true);
-
+        JumpAnimation();
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    
+    private void JumpAnimation()
+    {
+        if (Input.GetButtonDown("Jump"))
+            jumpTimer = Time.time + jumpDelay;
+
+        if (!onGround)
+            animator.SetBool(IsJumping, true);
+    }
+
 
     private void CheckGround()
     {
@@ -124,20 +138,14 @@ public class MoveController
 
         if (Mathf.Abs(rb.velocity.x) > maxSpeed)
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
-    }
-
-    public void FixedUpdate()
-    {
-        MoveCharacter(direction.x);
+        
         animator.SetFloat(Speed,Mathf.Abs(rb.velocity.x));
         animator.SetBool(IsJumping, false);
 
         if (jumpTimer > Time.time && (onGround))
             Jump();
-
-        ModifyPhysics();
-        OneWayPlatformMovement();
     }
+    
 
     private void Jump()
     {
