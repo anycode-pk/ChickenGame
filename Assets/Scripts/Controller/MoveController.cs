@@ -14,12 +14,12 @@ public class MoveController
     [Header("Horizontal Movement")]
     [SerializeField] private float moveSpeed = 10f;
     public Vector2 direction;
-    private bool isFacingRight;
+    private bool isFacingRight = true;
 
     [Header("Vertical Movement")]
-    [SerializeField] private float jumpSpeed = 10f;
-    [SerializeField] private float jumpDelay = 0.25f;
-    private float jumpTimer;
+    [SerializeField] private float jumpPower = 10f;
+    //[SerializeField] private float jumpDelay = 0.25f;
+    //private float jumpTimer;
 
     [Header("Physics")]
     [SerializeField] private float maxSpeed = 7f;
@@ -63,21 +63,33 @@ public class MoveController
         this.animator = animator;
         this.transform = transform;
     }
+    
+    public void FixedUpdate()
+    {
+        MovementCheck();
+        MoveCharacter(direction.x);
+        ModifyPhysics();
+        OneWayPlatformMovement();
+    }
 
     public void Update()
     {
-        CheckGround();
-
-        if(Input.GetButtonDown("Jump"))
-            jumpTimer = Time.time + jumpDelay;
         
-        if (!onGround)
-            animator.SetBool(IsJumping, true);
+    }
 
+    private void MovementCheck()
+    {
+        CheckGround();
+        JumpAnimation();
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    
+    private void JumpAnimation()
+    {
+        if (!onGround)
+            animator.SetBool(IsJumping, true);
+    }
+
 
     private void CheckGround()
     {
@@ -114,37 +126,29 @@ public class MoveController
 
     private void MoveCharacter(float horizontal)
     {
+        if (Input.GetButtonDown("Jump")) Jump();
         rb.AddForce(Vector2.right * (horizontal * moveSpeed));
 
-        animator.SetBool(UserNotMovingChicken, horizontal == 0 ? true : false);
+        animator.SetBool(UserNotMovingChicken, horizontal == 0);
 
         if((horizontal > 0 && !isFacingRight) || (horizontal < 0 && isFacingRight))
             Flip();
 
         if (Mathf.Abs(rb.velocity.x) > maxSpeed)
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
-    }
-
-    public void FixedUpdate()
-    {
-        MoveCharacter(direction.x);
+        
         animator.SetFloat(Speed,Mathf.Abs(rb.velocity.x));
         animator.SetBool(IsJumping, false);
-
-        if (jumpTimer > Time.time && (onGround))
-            Jump();
-
-        ModifyPhysics();
-        OneWayPlatformMovement();
     }
+    
 
     private void Jump()
     {
+        if (!onGround) return;
+
         audioSource.PlayOneShot(jumpSound);
         animator.SetTrigger(Jump1);
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-        jumpTimer = 0;
+        rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
 
 
@@ -213,11 +217,6 @@ public class MoveController
         {
             Physics2D.IgnoreCollision(other.collider, col, true);
         }
-        
-        //if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
-        //{
-        //    healthController.TakeDamage(1,other.transform);
-        //}
     }
     
     public void ColStayBehaviour(Collision2D other)
