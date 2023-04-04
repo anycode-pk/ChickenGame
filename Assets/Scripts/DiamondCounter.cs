@@ -8,9 +8,10 @@ public class DiamondCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI count;
     [SerializeField] private TextMeshProUGUI max;
-    public int maxAmount;
+    private int maxAmount=1;
     private void Start()
     {
+        maxAmount = GameObject.FindGameObjectsWithTag("Diamond").Length;
         max.text = "/"+maxAmount.ToString();
     }
     public void AddDiamond()
