@@ -31,7 +31,7 @@ public class MoveController
     [SerializeField] private float groundLength = 0.6f;
     [SerializeField] private Vector3 colliderOffset;
     public bool onGround;
-    private float waitTime = 0.5f;
+    private float waitTime = 0.7f;
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
@@ -66,28 +66,22 @@ public class MoveController
     
     public void FixedUpdate()
     {
-        MovementCheck();
         MoveCharacter(direction.x);
         ModifyPhysics();
-        OneWayPlatformMovement();
     }
 
     public void Update()
     {
-        
+        MovementCheck();   
+        OneWayPlatformMovement();
     }
 
     private void MovementCheck()
     {
         CheckGround();
-        JumpAnimation();
+        if (Input.GetButtonDown("Jump")) 
+            Jump();
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    }
-
-    private void JumpAnimation()
-    {
-        if (!onGround)
-            animator.SetBool(IsJumping, true);
     }
 
 
@@ -100,6 +94,7 @@ public class MoveController
                            , Vector2.down, groundLength, groundLayer) ||
                        Physics2D.Raycast(position - colliderOffset
                            , Vector2.down, groundLength, groundLayer);
+            animator.SetBool(IsJumping, !onGround);
         }
     }
 
@@ -111,7 +106,7 @@ public class MoveController
             {
                 Physics2D.IgnoreLayerCollision(9, 7, true);
                 rb.AddForce(Vector2.down * 5f);
-                waitTime = 0.5f;
+                waitTime = 0.7f;
             }
             else
             {
@@ -126,7 +121,6 @@ public class MoveController
 
     private void MoveCharacter(float horizontal)
     {
-        if (Input.GetButtonDown("Jump")) Jump();
         rb.AddForce(Vector2.right * (horizontal * moveSpeed));
 
         animator.SetBool(UserNotMovingChicken, horizontal == 0);
