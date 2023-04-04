@@ -10,7 +10,6 @@ using UnityEngine.Serialization;
 [System.Serializable]
 public class MoveController
 {
-    public HealthController healthController = new HealthController();
 
     [Header("Horizontal Movement")]
     [SerializeField] private float moveSpeed = 10f;
@@ -192,16 +191,16 @@ public class MoveController
         Gizmos.DrawLine(position + colliderOffset, position + colliderOffset + Vector3.down * groundLength);
         Gizmos.DrawLine(position - colliderOffset, position - colliderOffset + Vector3.down * groundLength);
     }
-    private void Die()
-     {
-        //rb.bodyType = RigidbodyType2D.Static;
-         audioSource.PlayOneShot(deathSound);
-         CinemachineVirtualCamera vCam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
-         rb.transform.position += Vector3.up * 1.7f;
-         vCam.Follow = null;
-         col.enabled = false;
-         animator.SetTrigger(Death);
-     }
+    //private void Die()
+    // {
+    //    //rb.bodyType = RigidbodyType2D.Static;
+    //     audioSource.PlayOneShot(deathSound);
+    //     CinemachineVirtualCamera vCam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+    //     rb.transform.position += Vector3.up * 1.7f;
+    //     vCam.Follow = null;
+    //     col.enabled = false;
+    //     animator.SetTrigger(Death);
+    // }
 
      private void RestartLevel()
      {
@@ -215,11 +214,10 @@ public class MoveController
             Physics2D.IgnoreCollision(other.collider, col, true);
         }
         
-        if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
-        {
-            healthController.TakeDamage(1,other.transform);
-            Die();
-        }
+        //if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        //{
+        //    healthController.TakeDamage(1,other.transform);
+        //}
     }
     
     public void ColStayBehaviour(Collision2D other)

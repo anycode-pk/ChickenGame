@@ -31659,6 +31659,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.rb
+      value: 
+      objectReference: {fileID: 1471128690}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.col
+      value: 
+      objectReference: {fileID: 1471128689}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: moveController.health
       value: 
       objectReference: {fileID: 0}
@@ -31671,9 +31679,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1775354792}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.animator
+      value: 
+      objectReference: {fileID: 1471128692}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.transform
+      value: 
+      objectReference: {fileID: 1185403765}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: aea9cd2c491b12d499528f9e95b96de0, type: 3}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.knockBackForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: healthController.lives.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.healthController.col
+      value: 
+      objectReference: {fileID: 1471128689}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: healthController.lives.Array.data[0]
       value: 
-      objectReference: {fileID: 283974883}
+      objectReference: {fileID: 1665964999}
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: healthController.lives.Array.data[1]
       value: 
@@ -31681,14 +31713,22 @@ PrefabInstance:
     - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: healthController.lives.Array.data[2]
       value: 
-      objectReference: {fileID: 1665964999}
+      objectReference: {fileID: 283974883}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.healthController.animator
+      value: 
+      objectReference: {fileID: 1471128692}
+    - target: {fileID: 2337551585528981771, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: moveController.healthController.lives.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4464564458464950103, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78.2
+      value: -7.02
       objectReference: {fileID: 0}
     - target: {fileID: 4464564458464950103, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.9
+      value: -0.68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
@@ -32059,7 +32099,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 2.820549
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -32135,6 +32175,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &1471128689 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5613331421685692341, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+  m_PrefabInstance: {fileID: 1339784853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1471128690 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4897335342498597701, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+  m_PrefabInstance: {fileID: 1339784853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1471128692 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 226586603, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+  m_PrefabInstance: {fileID: 1339784853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1504474468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36636,11 +36691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78.2
+      value: -7.02
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.9
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36808,11 +36863,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78.2
+      value: -7.02
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.9
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.z

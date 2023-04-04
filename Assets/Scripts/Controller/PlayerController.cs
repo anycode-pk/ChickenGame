@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         moveController.ColCheckEnter(other);
+        healthController.CheckForDamage(other);
     }
     
     private void OnCollisionStay2D(Collision2D other)
