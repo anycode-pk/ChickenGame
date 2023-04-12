@@ -1176,6 +1176,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6593508932382857673, guid: 9b1b5e1f76c34184aad3d1a429ff0903, type: 3}
+      propertyPath: levelName
+      value: CreditScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6990404162211652650, guid: 9b1b5e1f76c34184aad3d1a429ff0903, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1186,7 +1190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6990404162211652650, guid: 9b1b5e1f76c34184aad3d1a429ff0903, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.542952
+      value: 15.52
       objectReference: {fileID: 0}
     - target: {fileID: 6990404162211652650, guid: 9b1b5e1f76c34184aad3d1a429ff0903, type: 3}
       propertyPath: m_LocalPosition.z
