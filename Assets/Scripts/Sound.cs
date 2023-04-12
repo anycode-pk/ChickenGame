@@ -14,3 +14,6 @@ public class Sound : MonoBehaviour
         }
     }
 }
+
+// glowna klasa
+// 
