@@ -91,8 +91,8 @@ MonoBehaviour:
     linearDrag: 4
     gravity: 1
     fallMultiplier: 5
-    groundLength: 1.05
-    colliderOffset: {x: 0.3, y: 0, z: 0}
+    groundLength: 1
+    colliderOffset: {x: 0.16, y: 0, z: 0}
     onGround: 0
     rb: {fileID: 4897335342498597701}
     groundLayer:
