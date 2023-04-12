@@ -20,6 +20,8 @@ public class MoveController
     [SerializeField] private float jumpPower = 10f;
     //[SerializeField] private float jumpDelay = 0.25f;
     //private float jumpTimer;
+    private bool playJumpingSound = true;
+    private int jumpCounter = 5;
 
     [Header("Physics")]
     [SerializeField] private float maxSpeed = 7f;
@@ -139,10 +141,27 @@ public class MoveController
     private void Jump()
     {
         if (!onGround) return;
-
-        audioSource.PlayOneShot(jumpSound);
+        PlaySoundAfterFiveJumps();
         animator.SetTrigger(Jump1);
+        
         rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+    }
+
+    private void PlaySoundAfterFiveJumps()
+    {
+        jumpCounter--;
+        
+        if (jumpCounter == 0)
+        {
+            jumpCounter = 5;
+            playJumpingSound = true;
+        }
+
+        if (playJumpingSound)
+        {
+            audioSource.PlayOneShot(jumpSound);
+            playJumpingSound = false;
+        }
     }
 
 
@@ -209,6 +228,7 @@ public class MoveController
     {
         if (other.gameObject.CompareTag("Platform")) 
         {
+            Debug.Log("enter");
             Physics2D.IgnoreCollision(other.collider, col, true);
         }
     }
@@ -217,6 +237,7 @@ public class MoveController
     {
         if (other.gameObject.CompareTag("Platform"))
         {
+            Debug.Log("stay");
             Physics2D.IgnoreCollision(other.collider, col, true);
         }
     }

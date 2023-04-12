@@ -320,7 +320,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1660506782}
     m_Modifications:
     - target: {fileID: 9036002467838467305, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_Name
@@ -348,15 +348,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 133820214}
   m_Layer: 7
   m_Name: StaticPlatgorm3
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -688,7 +688,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 175868552}
   m_Layer: 7
   m_Name: StaticPlatgorm4 (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -824,7 +824,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -841,7 +841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1018,7 +1018,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237839090
 GameObject:
@@ -1091,7 +1091,7 @@ GameObject:
   - component: {fileID: 246501227}
   m_Layer: 7
   m_Name: StaticPlatgorm4 (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1152,7 +1152,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 269239609}
   m_Layer: 7
   m_Name: StaticPlatgorm7
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1288,7 +1288,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -1421,7 +1421,7 @@ GameObject:
   - component: {fileID: 298816282}
   m_Layer: 7
   m_Name: StaticPlatgorm6
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1482,7 +1482,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -1813,7 +1813,7 @@ GameObject:
   - component: {fileID: 379371376}
   m_Layer: 7
   m_Name: StaticPlatgorm1
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1874,7 +1874,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -2563,6 +2563,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 226586608, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: m_Volume
+      value: 0.115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471128687, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+      propertyPath: m_Volume
+      value: 0.064
+      objectReference: {fileID: 0}
     - target: {fileID: 107368712571072564, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
       propertyPath: m_Name
       value: Chicken
@@ -2730,7 +2738,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 38d2846616d0ca640950f5ae27ed2d70, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.747
+  m_Volume: 0.042
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2942,7 +2950,7 @@ GameObject:
   - component: {fileID: 648959232}
   m_Layer: 7
   m_Name: StaticPlatgorm4 (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3003,7 +3011,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -3020,7 +3028,7 @@ GameObject:
   - component: {fileID: 659350118}
   m_Layer: 7
   m_Name: StaticPlatgorm4
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3081,7 +3089,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -3118,7 +3126,7 @@ Transform:
   - {fileID: 997575314}
   - {fileID: 1411079073}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &688004876 stripped
 Transform:
@@ -3378,7 +3386,7 @@ GameObject:
   - component: {fileID: 858730917}
   m_Layer: 7
   m_Name: StaticPlatgorm4 (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3439,7 +3447,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -3501,6 +3509,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7460134, y: 3.743946}
   m_EdgeRadius: 0
+--- !u!4 &872071590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
+  m_PrefabInstance: {fileID: 1830435319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &873553287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,7 +3647,7 @@ GameObject:
   - component: {fileID: 882615997}
   m_Layer: 7
   m_Name: StaticPlatgorm4 (8)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3695,7 +3708,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -3789,7 +3802,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5535042604819904789, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: orthographic size
-      value: 7.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819904790, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_Name
@@ -3797,7 +3810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81155,7 +81168,7 @@ GameObject:
   - component: {fileID: 937552435}
   m_Layer: 7
   m_Name: StaticPlatgorm4 (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -81216,7 +81229,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -81356,7 +81369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8226211161056624664, guid: 258f551ecf2576b4db0b3699f14e175f, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8226211161056624664, guid: 258f551ecf2576b4db0b3699f14e175f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -81878,7 +81891,7 @@ GameObject:
   - component: {fileID: 1163296886}
   m_Layer: 7
   m_Name: StaticPlatgorm8
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -81939,7 +81952,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -120524,6 +120537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62b0869da355d6542b239b80de221478, type: 3}
+--- !u!4 &1254799839 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
+  m_PrefabInstance: {fileID: 1697782855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1259923559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120609,7 +120627,7 @@ GameObject:
   - component: {fileID: 1289697901}
   m_Layer: 7
   m_Name: StaticPlatgorm4 (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -120670,7 +120688,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -120908,7 +120926,7 @@ GameObject:
   - component: {fileID: 1347704811}
   m_Layer: 7
   m_Name: StaticPlatgorm2
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -120969,7 +120987,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -121519,7 +121537,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1660506782}
     m_Modifications:
     - target: {fileID: 9036002467838467305, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_Name
@@ -121547,15 +121565,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -121918,6 +121936,10 @@ Transform:
   m_Children:
   - {fileID: 889495527}
   - {fileID: 2052171500}
+  - {fileID: 2083437496}
+  - {fileID: 2062436986}
+  - {fileID: 1254799839}
+  - {fileID: 872071590}
   m_Father: {fileID: 681702784}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123958,7 +123980,7 @@ GameObject:
   - component: {fileID: 1664895758}
   m_Layer: 7
   m_Name: StaticPlatgorm4 (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -124019,7 +124041,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -124143,7 +124165,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1660506782}
     m_Modifications:
     - target: {fileID: 9036002467838467305, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_Name
@@ -124151,7 +124173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalPosition.x
@@ -124171,15 +124193,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -124274,7 +124296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6990404162211652650, guid: 9b1b5e1f76c34184aad3d1a429ff0903, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6990404162211652650, guid: 9b1b5e1f76c34184aad3d1a429ff0903, type: 3}
       propertyPath: m_LocalPosition.x
@@ -125760,7 +125782,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1660506782}
     m_Modifications:
     - target: {fileID: 9036002467838467305, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_Name
@@ -125768,7 +125790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalPosition.x
@@ -125788,15 +125810,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -126127,7 +126149,7 @@ GameObject:
   - component: {fileID: 2031300078}
   m_Layer: 7
   m_Name: StaticPlatgorm5
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -126188,7 +126210,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -126253,7 +126275,7 @@ GameObject:
   - component: {fileID: 2060345977}
   m_Layer: 7
   m_Name: StaticPlatgorm9
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -126314,10 +126336,15 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 161.7
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!4 &2062436986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
+  m_PrefabInstance: {fileID: 1564490805}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2069179114
 GameObject:
   m_ObjectHideFlags: 0
@@ -126376,6 +126403,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1029431, y: 1.1428347}
   m_EdgeRadius: 0
+--- !u!4 &2083437496 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036002467838467306, guid: b9616e53adca6e04fa0f41d79f8c1252, type: 3}
+  m_PrefabInstance: {fileID: 70911185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2094097387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4692314513506543476, guid: 62b0869da355d6542b239b80de221478, type: 3}
