@@ -852,6 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level1
+  videoPlayer: {fileID: 0}
 --- !u!114 &271531942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,7 +1046,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 277707704}
         m_TargetAssemblyTypeName: StartLevel, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1105,7 +1106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c52c95f1d0182a4f8988083a7dd7e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Level2
+  levelName: Level1
+  videoPlayer: {fileID: 966348162}
 --- !u!1001 &293540229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1241,6 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level1
+  videoPlayer: {fileID: 0}
 --- !u!114 &301006712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,6 +1392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level2
+  videoPlayer: {fileID: 0}
 --- !u!114 &336887779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1618,6 +1622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level1
+  videoPlayer: {fileID: 0}
 --- !u!114 &405419123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,6 +1783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: BossFight
+  videoPlayer: {fileID: 0}
 --- !u!114 &440567882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2139,6 +2145,7 @@ RectTransform:
   - {fileID: 381874489}
   - {fileID: 2038453005}
   - {fileID: 643899955}
+  - {fileID: 966348161}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2608,6 +2615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: LEVEL4
+  videoPlayer: {fileID: 0}
 --- !u!114 &628226550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2905,6 +2913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level Kacpra 2
+  videoPlayer: {fileID: 0}
 --- !u!114 &694732847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3577,6 +3586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level1
+  videoPlayer: {fileID: 0}
 --- !u!114 &912448564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3725,6 +3735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level Kacpra 3
+  videoPlayer: {fileID: 0}
 --- !u!114 &917082808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3894,6 +3905,113 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926595501}
+  m_CullTransparentMesh: 1
+--- !u!1 &966348160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966348161}
+  - component: {fileID: 966348164}
+  - component: {fileID: 966348163}
+  - component: {fileID: 966348162}
+  m_Layer: 5
+  m_Name: Intro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &966348161
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966348160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505267656}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!328 &966348162
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966348160}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 82a30a77df1230240b90439185dcefa9, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8600000, guid: 5ff0709e127995442b5458054a8ea8cd, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 1
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!114 &966348163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966348160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 8600000, guid: 5ff0709e127995442b5458054a8ea8cd, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &966348164
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966348160}
   m_CullTransparentMesh: 1
 --- !u!1 &966608836
 GameObject:
@@ -7470,6 +7588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level Kacpra
+  videoPlayer: {fileID: 0}
 --- !u!114 &1867330087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8335,6 +8454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level1
+  videoPlayer: {fileID: 0}
 --- !u!114 &2123752264
 MonoBehaviour:
   m_ObjectHideFlags: 0
