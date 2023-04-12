@@ -209,6 +209,7 @@ public class MoveController
     {
         if (other.gameObject.CompareTag("Platform")) 
         {
+            Debug.Log("enter");
             Physics2D.IgnoreCollision(other.collider, col, true);
         }
     }
@@ -217,6 +218,7 @@ public class MoveController
     {
         if (other.gameObject.CompareTag("Platform"))
         {
+            Debug.Log("stay");
             Physics2D.IgnoreCollision(other.collider, col, true);
         }
     }
