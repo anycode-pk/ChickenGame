@@ -11,6 +11,7 @@ public class DiamondCounter : MonoBehaviour
     {
         maxAmount = GameObject.FindGameObjectsWithTag("Diamond").Length;
         count = 0;
+        counter.text = count + "/" + maxAmount;
     }
     public void AddDiamond()
     {
