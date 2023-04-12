@@ -144,11 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6556151454882089606, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 6556151454882089607, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2025371012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a5d17d50f38454db4173ba0c14d32c, type: 3}
 --- !u!1 &504404081
@@ -337,11 +337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5535042604819905002, guid: 8021f20bd307cfc4a9abb43b508f98d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1423,6 +1423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+--- !u!4 &2025371012 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4464564458464950103, guid: f020f4e9206f5374eb35b1d2266db540, type: 3}
+  m_PrefabInstance: {fileID: 2025371011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2052171499
 GameObject:
   m_ObjectHideFlags: 0
