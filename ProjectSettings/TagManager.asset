@@ -9,6 +9,12 @@ TagManager:
   - Chicken
   - Coin
   - CoinCounter
+  - CointCounter
+  - PauseMenu
+  - LifeCounter
+  - Heart
+  - DiamondCounter
+  - Diamond
   layers:
   - Default
   - TransparentFX
@@ -20,7 +26,7 @@ TagManager:
   - Platform
   - TransparentPlatform
   - Chicken
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -45,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: logo
+    uniqueID: 2393922613
     locked: 0

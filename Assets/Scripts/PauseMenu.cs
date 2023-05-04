@@ -7,8 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isGamePaused = false;
 
-    [SerializeField] GameObject pauseMenu;
-    
+    [SerializeField] GameObject pauseMenu;  
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -48,4 +47,14 @@ public class PauseMenu : MonoBehaviour
 
         Debug.Log("Quit");
     }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ShowCredits()
+    {
+        SceneManager.LoadScene("CreditScene");
+    }
+    
 }
